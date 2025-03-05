@@ -26,7 +26,11 @@ class DonutTab extends StatelessWidget {
         // CrossAxisCount- el eje principal de una columna es vertical
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
             //numero de columnas que estan en un eje
-            (crossAxisCount: 2),
+            (
+          crossAxisCount: 2,
+          //relación de aspecto (Proporción)
+          childAspectRatio: (1 / 1.5),
+        ),
         itemBuilder: (context, index) {
           return DonutTile(
             donutFlavor: donutsOnSale[index][0],
