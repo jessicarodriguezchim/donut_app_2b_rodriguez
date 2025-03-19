@@ -1,0 +1,2 @@
+C:/Users/kekev/Desktop/segundo cuatrimestre/POO/donut_app_2b_rodriguez/android/app/.cxx/Debug/2h2f4k4c/x86/CMakeFiles/edit_cache.dir
+C:/Users/kekev/Desktop/segundo cuatrimestre/POO/donut_app_2b_rodriguez/android/app/.cxx/Debug/2h2f4k4c/x86/CMakeFiles/rebuild_cache.dir
