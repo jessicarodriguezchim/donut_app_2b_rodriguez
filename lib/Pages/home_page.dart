@@ -14,19 +14,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //Lista de tabs
+  // Lista de Tabs
   List<Widget> myTabs = [
-    //DonutTab
     MyTab(iconPath: 'lib/icons/donut.png'),
-    //BurgerTab
     MyTab(iconPath: 'lib/icons/burger.png'),
-    //SmoothieTab
     MyTab(iconPath: 'lib/icons/smoothie.png'),
-    //PanCakesTab
     MyTab(iconPath: 'lib/icons/pancakes.png'),
-    //pizzaTab
     MyTab(iconPath: 'lib/icons/pizza.png'),
   ];
+
   // Variables del carrito
   int itemCount = 0;
   double totalPrice = 0.0;
