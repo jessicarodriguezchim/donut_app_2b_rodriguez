@@ -1,25 +1,38 @@
 import 'package:donut_app_2b_rodriguez/Pages/home_page.dart';
+import 'package:donut_app_2b_rodriguez/Pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Obtener instancia de SharedPreferences para verificar el token
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? token = prefs.getString('jwt'); // Cambia 'jwt' si usas otro nombre
+
+  runApp(MyApp(isLoggedIn: token != null));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
 
-  // This widget is the root of your application.
+  const MyApp({super.key, required this.isLoggedIn});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Donut App',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
-        tabBarTheme: const TabBarTheme(indicatorColor: Colors.pink),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.pink,
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: isLoggedIn ? const HomePage() : const Login(),
+      routes: {
+        '/login': (context) => const Login(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
